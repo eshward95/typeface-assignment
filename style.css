@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  -webkit-overflow-scrolling: touch;
+}
+:root {
+  --dark-color-a: #f4ede4;
+  --dark-color-b: #4a154b;
+  --light-color: #4a154b;
+  --font-color: #f6f6f6;
+  --font-color-b: #272727;
+  --font-color-c: rgba(0, 0, 0, 0.4);
+}
+
+html {
+  background-color: #e8e8e8;
+}
+h1,
+h3,
+h2 {
+  color: var(--font-color);
+}
+
+body {
+  color: var(--font-color-b);
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+}
+.container {
+  background: #fff;
+  max-width: 1100px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+.chat-header {
+  background: var(--dark-color-b);
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chat-container {
+  display: flex;
+}
+.message-container {
+  position: relative;
+  flex: 8;
+}
+.sidebar {
+  flex: 2;
+  background: var(--dark-color-b);
+  color: #fff;
+  padding: 0px 24px;
+  overflow-y: scroll;
+}
+.messages {
+  padding: 16px 16px 8px 24px;
+  max-height: 500px;
+  min-height: 300px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  margin: 0 36px;
+}
+.message-thread {
+  top: 0;
+  right: 0;
+  width: 0;
+  overflow: hidden;
+  height: 100%;
+  position: absolute;
+  animation: threadAnim 0.01s ease-in 0s 1 normal forwards;
+}
+.message-thread.visible {
+  display: flex;
+  width: 100%;
+}
+@keyframes threadAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.overlay-container {
+  width: calc(100% - 300px);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.thread-wrapper {
+  background: var(--font-color);
+  width: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  animation: threadAnim 0.1s ease-in 0s 1 normal forwards;
+}
+.sticky-header {
+  background: var(--font-color);
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  top: 0;
+  width: 100%;
+}
+.header-text {
+  font-size: 24px;
+  font-weight: 600;
+}
+.header-username {
+  color: var(--font-color-c);
+  margin-left: 8px;
+}
+.close-icon {
+  font-size: 16px;
+  cursor: pointer;
+}
+.close-icon:hover {
+  color: var(--font-color-c);
+  transition: color 0.3s;
+}
+.thread-container {
+  padding: 12px 24px;
+}
+.message-thread .textbox {
+  padding: 12px;
+}
+.message-wrapper {
+  margin-bottom: 16px;
+}
+.reply-visible {
+  cursor: pointer;
+  font-size: 10px;
+  visibility: hidden;
+}
+.message-wrapper:hover .reply-visible {
+  visibility: visible;
+}
+.reply-visible:hover {
+  color: var(--font-color-c);
+  transition: color 0.3s;
+}
+.message {
+  background: #e1e1e1;
+  color: #000;
+  margin-right: auto;
+  padding: 12px;
+  border-radius: 12px;
+}
+.message-header {
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  cursor: pointer;
+  padding: 5px 15px;
+  background: var(--dark-color-a);
+  color: var(--dark-color-b);
+  border: 0;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.selected {
+  background-color: #36c5f0a1;
+  border-radius: 4px;
+}
+.user-name {
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.timestamp {
+  font-size: 12px;
+  color: #7e818a;
+  font-weight: normal;
+}
+.name {
+  font-size: 16px;
+  color: #7e818a;
+  font-weight: 600;
+}
+.textbox-container {
+  display: flex;
+  flex: 1;
+  padding: 12px;
+  background-color: var(--dark-color-b);
+}
+.textbox {
+  padding: 12px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #1d1d1d;
+  border-style: solid;
+  border-radius: 4px;
+  flex: 1;
+}
+.textbox:focus {
+  outline: none;
+}
+.cursor--pointer {
+  cursor: pointer;
+}
