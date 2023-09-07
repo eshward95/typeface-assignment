@@ -27,15 +27,15 @@ const Thread = ({
 
         <div className="thread-container">
           {replies.length > 0 &&
-            replies.map((reply, idx) => (
+            replies.map(({ id, text, timeStamp, sentBy }) => (
               <Message
-                key={reply.id}
+                key={id}
                 isReply={true}
-                content={reply.text}
-                timeStamp={reply.timeStamp}
+                content={text}
                 replies={[]}
-                messageId={reply.id}
-                sentBy={reply.sentBy}
+                timeStamp={timeStamp}
+                messageId={id}
+                sentBy={sentBy}
               />
             ))}
         </div>

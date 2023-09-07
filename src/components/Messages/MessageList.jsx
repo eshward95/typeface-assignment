@@ -8,14 +8,14 @@ const MessageList = () => {
   return (
     <div className="messages">
       {messages?.length > 0 &&
-        messages.map((res, idx) => (
+        messages.map(({ id, text, replies, timeStamp, sentBy }) => (
           <Message
-            key={res.id}
-            content={res.text}
-            replies={res.replies}
-            timeStamp={res.timeStamp}
-            messageId={res.id}
-            sentBy={res.sentBy}
+            key={id}
+            content={text}
+            replies={replies}
+            timeStamp={timeStamp}
+            messageId={id}
+            sentBy={sentBy}
           />
         ))}
     </div>

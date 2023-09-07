@@ -23,7 +23,6 @@ const App = () => {
           </div>
         </div>
       </div>
-      {/* <h1>Working</h1> */}
     </ChatProvider>
   );
 };

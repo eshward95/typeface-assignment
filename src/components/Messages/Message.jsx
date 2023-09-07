@@ -32,6 +32,10 @@ const Message = ({
         <span>{content}</span>
       </div>
       <span className="timestamp">{getHumanReadableTime(timeStamp)}</span>
+      <span className="reply-count">
+        {replies.length > 0 &&
+          `${replies.length} ${replies.length > 1 ? "Replies" : "Reply"}`}
+      </span>
       {drawerVisible && (
         <Thread
           drawerVisible={drawerVisible}
